@@ -22,4 +22,4 @@ The output data set contains "mean of mean and std measurements for each subject
 - Subject - ranging from 1 to 30, identifying the Subject
 - Activity - decrtiptively labeled according to activity_labels.txt
 - 66 measurement columns
-
+For more details see code_book.txt

@@ -1,9 +1,6 @@
 #Reading datasets
 train<-read.table("UCI\ HAR\ DataSet/train/X_train.txt", header = FALSE)
 test<-read.table("UCI\ HAR\ DataSet/test/X_test.txt", header = FALSE)
-#Adding an id column for later merging
-#train["id"]<-1:nrow(train)
-#test["id"]<-(nrow(train) + 1):(nrow(train) + nrow(test))
 #Reading features
 features<-read.table("UCI\ HAR\ DataSet/features.txt", header = FALSE)
 #Setting features as column names of datasets
@@ -37,9 +34,9 @@ subject_test<-read.table("UCI\ HAR\ DataSet/test/subject_test.txt", header = FAL
 test[,"Subject"]<-subject_test[,1]
 #Reading train subject
 subject_train<-read.table("UCI\ HAR\ DataSet/train/subject_train.txt", header = FALSE)
-#adding subject column to train data frame
+#Adding subject column to train data frame
 train[,"Subject"]<-subject_train[,1]
-#Merging data with 564 columns (561 original + Activity + Subject + id)
+#Merging data with 563 columns (561 original + Activity + Subject)
 alldata<-merge(test, train, all = TRUE, by = 1:563)
 #Cutting the data frame to contain only mean, std and our Activity and Subject
 alldata2<-alldata[,grepl("mean\\(\\)|std\\(\\)|Activity|Subject", colnames(alldata))]
